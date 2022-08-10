@@ -95,12 +95,12 @@ Virtual machines provisioned are initialized using [Cloud-init](https://pve.prox
 wget http://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
 
 # Create a new VM with ID 9000
-qm create 9000 --memory 2048 --net0 virtio,bridge=vmbr0
+qm create 9000 --memory 8192 --net0 virtio,bridge=vmbr0
 
 # Import the downloaded disk to local storage with qcow2 format
-qemu-img create -b focal-server-cloudimg-amd64.img -f qcow2 -F qcow2 hal9000.img 10G
+qemu-img create -b focal-server-cloudimg-amd64.img -f qcow2 -F qcow2 ubuntu-focal-server-amd64.img 80G
 
-qm importdisk 9000 focal-server-cloudimg-amd64.img local --format qcow2
+qm importdisk 9000 ubuntu-focal-server-amd64.img local --format qcow2
 
 # Attach the new disk to the VM as scsi drive
 qm set 9000 --scsihw virtio-scsi-pci --scsi0 local:9000/vm-9000-disk-0.qcow2
