@@ -93,6 +93,7 @@ Virtual machines provisioned are initialized using [Cloud-init](https://pve.prox
 ```bash
 # Download the ubuntu cloud image
 wget http://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img
+wget https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img
 
 # Create a new VM with ID 9000
 qm create 9000 --memory 8192 --net0 virtio,bridge=vmbr0
